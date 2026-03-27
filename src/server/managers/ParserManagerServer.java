@@ -27,12 +27,11 @@ public class ParserManagerServer {
         commands.put("remove_greater", new RemoveGreater());
         commands.put("replace_if_lowe", new ReplaceIfLowe());
         commands.put("filter_less_than_minimal_point", new FilterLessThanMinimalPoint());
-        /*
         commands.put("print_unique_author", new PrintUniqueAuthor());
         commands.put("print_field_descending_author", new PrintFieldDescendingAuthor());
-        commands.put("save", new Save());
+        //commands.put("save", new Save());
         commands.put("execute_script", new ExecuteScript());
-        */
+
     }
     public ResponsePacket parseCommand(CommandPacket comPac, Socket client){
         String command_name = comPac.getType();

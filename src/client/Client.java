@@ -37,25 +37,29 @@ public class Client {
             inout.write("Введите команду:");
             String line = inout.read().trim();
             CommandPacket commandPacket= parser.parse(line);
-            if (commandPacket != null ) {
-                try {
-                    ResponsePacket responsePacket = connectManager.sendCommand(commandPacket);
-                    if (responsePacket.getData() != null) {
-                        if (commandPacket.getType() == "show" || commandPacket.getType() == "filter_less_than_minimal_point"){
-                            Map<Integer, LabWork> labWorkMap = (Map<Integer, LabWork>) responsePacket.getData();
-                            for (Integer i : labWorkMap.keySet()) {
-                                Client.inout.write(i + ": " + labWorkMap.get(i).toString());
-                            }
-                        } else {
-                            Client.inout.write(responsePacket.getData().toString());
-                        }
-                    }
-                } catch (NullPointerException e ){
-                    Client.inout.write("Вы не были подключены к серверу.");
-                }
-            } else {inout.write("Такой команды не существует");}
+            run(commandPacket);
 
         }
+    }
+
+    public static void run(CommandPacket commandPacket){
+        if (commandPacket != null ) {
+            try {
+                ResponsePacket responsePacket = connectManager.sendCommand(commandPacket);
+                if (responsePacket.getData() != null) {
+                    if (commandPacket.getType() == "show" || commandPacket.getType() == "filter_less_than_minimal_point"){
+                        Map<Integer, LabWork> labWorkMap = (Map<Integer, LabWork>) responsePacket.getData();
+                        for (Integer i : labWorkMap.keySet()) {
+                            Client.inout.write(i + ": " + labWorkMap.get(i).toString());
+                        }
+                    } else {
+                        Client.inout.write(responsePacket.getData().toString());
+                    }
+                }
+            } catch (NullPointerException e ){
+                Client.inout.write("Вы не были подключены к серверу.");
+            }
+        } else {inout.write("Такой команды не существует");}
     }
 }
 
