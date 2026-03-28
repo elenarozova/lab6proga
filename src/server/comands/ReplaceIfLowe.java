@@ -1,5 +1,6 @@
 package server.comands;
 
+import data.Generate;
 import data.LabWork;
 import data.ResponsePacket;
 import server.interfaces.Comands;
@@ -10,10 +11,12 @@ public class ReplaceIfLowe implements Comands {
 
     @Override
     public ResponsePacket implementCommand(String[] args, LabWork labWork, Socket clientChannel) {
+        LabWork laba = labWork;
+        laba.setId(Generate.generateId());
         Integer key = Integer.parseInt(args[0]);
         if (Server.colman.contains(key)) {
             if (labWork.compareTo(Server.colman.getLabWork().get(key))<0){
-                Server.colman.getLabWork().replace(key,labWork);
+                Server.colman.getLabWork().replace(key,laba);
                 return new ResponsePacket("Объект был меньше, чем заданный вами, и был заменен.", null);
             }
         }

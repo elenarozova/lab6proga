@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<labWorks>
+  <entry>
+    <key>5</key>
+    <LabWork>
+      <id>2</id>
+      <nameLabWork>9</nameLabWork>
+      <coordinates>
+        <X>9.0</X>
+        <Y>9</Y>
+      </coordinates>
+      <date>2026-03-27</date>
+      <minimalPoint>9.0</minimalPoint>
+      <difficulty>NORMAL</difficulty>
+      <Person>
+        <nameAuthor>9</nameAuthor>
+        <height>9.0</height>
+        <weight>9.0</weight>
+        <passportNumber>9</passportNumber>
+      </Person>
+    </LabWork>
+  </entry>
+  <entry>
+    <key>7</key>
+    <LabWork>
+      <id>1</id>
+      <nameLabWork>gfds</nameLabWork>
+      <coordinates>
+        <X>3.0</X>
+        <Y>3</Y>
+      </coordinates>
+      <date>2026-03-27</date>
+      <minimalPoint>3.0</minimalPoint>
+      <difficulty>NORMAL</difficulty>
+      <Person>
+        <nameAuthor>3</nameAuthor>
+        <height>3.0</height>
+        <weight>3.0</weight>
+        <passportNumber>3</passportNumber>
+      </Person>
+    </LabWork>
+  </entry>
+</labWorks>

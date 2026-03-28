@@ -1,5 +1,6 @@
 package server.comands;
 
+import data.Generate;
 import data.LabWork;
 import data.ResponsePacket;
 import server.Server;
@@ -10,6 +11,8 @@ import java.net.Socket;
 public class Update implements Comands {
     @Override
     public ResponsePacket implementCommand(String[] args, LabWork labWork, Socket clientChannel) {
+        LabWork laba = labWork;
+        laba.setId(Generate.generateId());
         Integer key = Integer.parseInt(args[0]);
         if (Server.colman.contains(key)){
             Server.colman.getLabWork().replace(key,labWork);

@@ -26,4 +26,9 @@ public class RemoveGreaterKey implements Comands {
         Server.colman.setLabWork(filter);
         return new ResponsePacket("Были удалены все элементы c ключом, превышающий данный", null);
     }
+
+    @Override
+    public String toString(){
+        return "remove_greater_key: Удаляет все элементы после данного";
+    }
 }

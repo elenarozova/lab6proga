@@ -1,11 +1,8 @@
 package server.managers;
 
+import data.*;
 import server.Server;
 
-import data.Coordinates;
-import data.Difficulty;
-import data.LabWork;
-import data.Person;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -71,7 +68,7 @@ public class FileManager {
         } catch (SAXException | IOException e) {
             Server.logger.error("В файле не было найдено данных");
         }
-        Server.genMan.setIdi(Server.colman.maxKey()+1);
+        Generate.setIdi(Server.colman.maxKey()+1);
 
 
     }

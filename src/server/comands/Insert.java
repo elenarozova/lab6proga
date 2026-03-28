@@ -1,5 +1,6 @@
 package server.comands;
 
+import data.Generate;
 import data.LabWork;
 import data.ResponsePacket;
 import server.Server;
@@ -11,7 +12,7 @@ public class Insert implements Comands {
     @Override
     public ResponsePacket implementCommand(String[] args, LabWork labWork, Socket clientChannel) {
         LabWork laba =  labWork;
-        laba.setId(Server.genMan.generateId());
+        laba.setId(Generate.generateId());
         Server.colman.insert(Integer.parseInt(args[0]),laba);
         return new ResponsePacket("Объект (Лабораторная работа) был добавлен в коллекцию.", labWork);
     }

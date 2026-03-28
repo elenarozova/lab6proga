@@ -2,8 +2,6 @@ package data;
 
 import client.Client;
 import client.managers.CheckValues;
-import server.Server;
-import server.managers.Generate;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -51,7 +49,7 @@ public class LabWork implements Comparable<LabWork>, Serializable {
         Person author;
 
         public Builder(){
-            id = Server.genMan.generateId();//Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
+            id = Generate.generateId();//Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
             name = setName(); //Поле не может быть null, Строка не может быть пустой
             coordinates = new Coordinates(); //Поле не может быть null
             creationDate= LocalDate.now(); //Поле не может быть null, Значение этого поля должно генерироваться автоматически

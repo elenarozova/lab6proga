@@ -8,6 +8,7 @@ import data.ResponsePacket;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Map;
 
 public class Client {
@@ -17,16 +18,34 @@ public class Client {
     public static ConnectManager connectManager;
 
     private static String host = "127.0.0.1" ;
-    private static int port = 8080;
+    private static int port = 8888;
 
 
     private static void initializeConnectionAddress(String[] hostAndPortArgs) {
-        if (hostAndPortArgs.length != 2) {
-            Client.inout.write("Были некорректно введены порт и хост.х");
-        } else if (Integer.parseInt(hostAndPortArgs[1])<0) {
-            host = hostAndPortArgs[0];
-            port = Integer.parseInt(hostAndPortArgs[1]);
+        Client.inout.write(hostAndPortArgs.toString());
+        if (hostAndPortArgs.length ==0) {
+            Client.inout.write("Не были введены порт и хост");
+        } else if (hostAndPortArgs.length == 1) {
+            try {
+                port = Integer.parseInt(hostAndPortArgs[0]);
+            } catch (NumberFormatException e) {
+                host = hostAndPortArgs[0];
+            }
+        } else {
+            try {
+                port = Integer.parseInt(hostAndPortArgs[0]);
+                host = hostAndPortArgs[1];
+            } catch (NumberFormatException e) {
+                try{
+                    port = Integer.parseInt(hostAndPortArgs[1]);
+                    host = hostAndPortArgs[0];
+                } catch (NumberFormatException ex) {
+                    Client.inout.write("Неправильно были введены порт и хост, выбрано стандартное значение - " + port + ", "+ host);
+                }
+
+            }
         }
+        Client.inout.write("Bыбрано стандартное значение - " + port + ", "+ host);
 
     }
 

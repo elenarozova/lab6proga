@@ -53,7 +53,7 @@ public class ConnectModule {
 
     private Socket connectToClient()  {
         try{
-            Server.logger.info("Подключаемся к клиенту");
+            Server.logger.info("Ждём клиента");
             Socket clientSocket = socket.accept();
             Server.logger.info("Клиент подключен");
             return clientSocket;
