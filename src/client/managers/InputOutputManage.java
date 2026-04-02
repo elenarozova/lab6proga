@@ -46,7 +46,7 @@ public class InputOutputManage {
             } else {
                 write("Файл скрипта закончился. Возврат в консоль.");
                 stopFileReading("");  // переключаем обратно на консоль
-                return read();      // читаем уже с консоли
+                return "";      // читаем уже с консоли
             }
         }
         else {
@@ -71,6 +71,7 @@ public class InputOutputManage {
             write("Стек открытых файлов: " + openedFiles);
             scriptHasError = true;
             readFromFile = false;
+            stopFileReading(filename);
             return;
         }
         try {
@@ -84,6 +85,7 @@ public class InputOutputManage {
             scriptHasError = false;
         } catch (FileNotFoundException e) {
             write("Файл не найден: " + filename);
+            openedFiles.clear();
             readFromFile = false;
         }
     }
@@ -139,5 +141,9 @@ public class InputOutputManage {
 
     public boolean isReadingFromFile() {
         return readFromFile;
+    }
+
+    public List<String> getOpenedFiles() {
+        return openedFiles;
     }
 }

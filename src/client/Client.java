@@ -22,7 +22,6 @@ public class Client {
 
 
     private static void initializeConnectionAddress(String[] hostAndPortArgs) {
-        Client.inout.write(hostAndPortArgs.toString());
         if (hostAndPortArgs.length ==0) {
             Client.inout.write("Не были введены порт и хост");
         } else if (hostAndPortArgs.length == 1) {

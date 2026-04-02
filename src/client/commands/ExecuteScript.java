@@ -18,8 +18,11 @@ public class ExecuteScript implements Comands {
             Client.inout.write("Вы ввели больше аргументов, чем надо, первый будет принят как название скрипта, а остальные будут откинуты");
             filename=args[0].trim();
         }
+
+
         Client.inout.startFileReading(filename);
         if (!Client.inout.isReadingFromFile()) {
+            Client.inout.stopFileReading(filename);
             return null;
         }
         boolean hadError = false;
@@ -32,7 +35,7 @@ public class ExecuteScript implements Comands {
             if (Client.inout.isScriptHasError()) {
                 Client.inout.write("В файле была совершена ошибка ввода данных.");
                 hadError = true;
-                break;
+                return null;
             }
         }
         Client.inout.stopFileReading(filename);

@@ -64,16 +64,16 @@ public class Server {
                         try {
                             Save.save(filename);
                         } catch (Exception e) {
-                            Server.logger.error("Ошибка при сохранении");
+                            Server.logger.info("Ошибка при сохранении");
                         }
                     } else if (input.equalsIgnoreCase("exit")) {
                         Save.save(filename);
-                        Server.logger.error("Отключение сервера");
+                        Server.logger.info("Отключение сервера");
                         System.exit(0);
                     } else if (input.equalsIgnoreCase("help")) {
-                        Server.logger.error("help - справка");
-                        Server.logger.error("exit - завершить работу сервера");
-                        Server.logger.error("save - сохранить коллекцию");
+                        Server.logger.info("help - справка");
+                        Server.logger.info("exit - завершить работу сервера");
+                        Server.logger.info("save - сохранить коллекцию");
                     }
                 }
             } catch (NoSuchElementException e) {
